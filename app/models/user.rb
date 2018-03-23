@@ -1,5 +1,12 @@
 class User < ApplicationRecord
-  validates_presence_of :name, :email
+  before_create :remember
 
+  validates_presence_of :name, :email
   has_secure_password
+
+  def remember
+    random_string = SecureRandom.urlsafe_base64
+    self.update(remember_token: (Digest::SHA1.hexdigest random_string.to_s))
+  end
+  
 end

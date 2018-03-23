@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get '/login', to: "sessions#new"
+  post '/login', to: "sessions#create"
+  delete '/logout', to: "sessions#delete"
 
-  get 'sessions_controller/new'
+  resources :posts, only: [:new, :create, :index]
 
-  get 'sessions_controller/create'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
