@@ -1,0 +1,4 @@
+<li>
+  <%= link_to post.title, post_path(post.id) %>
+  <%= post.user.name unless current_user.nil? %>
+</li>

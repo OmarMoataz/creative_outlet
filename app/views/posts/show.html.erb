@@ -1,0 +1,5 @@
+<li>
+  <%= @post.user.name unless current_user.nil? %>
+  <%= @post.title %>
+  <%= @post.content %>
+</li>
