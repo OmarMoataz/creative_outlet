@@ -18,6 +18,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap', '~> 4.0.0'
 #Jquery support
 gem 'jquery-rails'
+#hirb console output formatting
+gem 'hirb', '~> 0.7.3'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

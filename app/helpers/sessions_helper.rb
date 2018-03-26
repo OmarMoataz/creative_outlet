@@ -6,12 +6,12 @@ module SessionsHelper
 
   def log_out
     cookies.delete :remember_token
-    User.find(session[:user_id]).update(remember_token: nil) if session[:user_id]
     session[:user_id] = nil
+    current_user = nil
   end
 
   def logged_in?
-    redirect_to login_path if current_user.nil?
+    !current_user.nil?
   end
 
   def current_user

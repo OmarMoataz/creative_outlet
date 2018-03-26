@@ -13,3 +13,23 @@
  */
 
 @import "bootstrap";
+
+/*
+  ===============
+  header
+  ===============
+*/
+
+.header {
+  background: black;
+  color: white;
+
+  ul.entries li {
+    display:table-cell;
+  }
+}
+
+.logo {
+  float:left;
+  width: 10%;
+}

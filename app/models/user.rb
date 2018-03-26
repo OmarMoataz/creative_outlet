@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   def remember
     random_string = SecureRandom.urlsafe_base64
-    self.update(remember_token: (Digest::SHA1.hexdigest random_string.to_s))
+    self.remember_token = Digest::SHA1.hexdigest random_string.to_s
   end
   
 end

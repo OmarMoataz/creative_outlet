@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
-      flash[:success] = 'User logged in successfully'
+      redirect_to root_path
     else
       flash[:danger] = 'Invalid cridentials'
       render 'new'
@@ -16,5 +16,6 @@ class SessionsController < ApplicationController
 
   def delete
     log_out
+    User.find(session[:user_id]).update(remember_token: nil) if session[:user_id]
   end
 end

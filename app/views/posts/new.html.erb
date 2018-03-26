@@ -1,17 +1,19 @@
 <h1> New Post </h1>
 
-
 <div class="row">
   <div class="col-md-6 col-md-offset-3" >
     <%= form_for @post do |f| %>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
+    <% if flash[:danger] %>
+        <div class="danger"> <%= flash[:danger] %> </div>
+    <% end %>
 
-      <%= f.label :content %>
-      <%= f.text_area :content %>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'form-control' %>
 
-      <%= f.submit "Create Post", class: "btn btn-primary" %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: 'form-control' %>
 
+    <%= f.submit "Create Post", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
