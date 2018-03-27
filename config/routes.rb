@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/create'
-
-  get 'users/new'
+  resources :users, only: [:new, :create, :show]
 
   root to: 'posts#index'
 

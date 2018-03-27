@@ -1,6 +1,4 @@
 class PostsController < ApplicationController
-  before_action :logged_in?, only: [:create, :new]
-
   def index
     @posts = Post.all
   end
@@ -10,15 +8,19 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    logged_in? ? (@post = Post.new) : (redirect_to login_path)
   end
 
   def create
-    @post = current_user.posts.new(post_params)
-    if @post.save
-      redirect_to posts_path
+    if logged_in?
+      @post = current_user.posts.new(post_params)
+      if @post.save
+        redirect_to posts_path
+      else
+        render 'new'
+      end
     else
-      render 'new'
+      redirect_to login_path
     end
   end
 
@@ -26,8 +28,8 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(
-        :title, 
-        :content
+      :title, 
+      :content
       )
   end
 end

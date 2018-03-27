@@ -14,22 +14,18 @@
 
 @import "bootstrap";
 
+
 /*
   ===============
-  header
+  Header
   ===============
 */
 
 .header {
   background: black;
   color: white;
-
-  ul.entries li {
-    display:table-cell;
-  }
 }
 
-.logo {
-  float:left;
-  width: 10%;
+.header ul li {
+  display: inline;
 }
