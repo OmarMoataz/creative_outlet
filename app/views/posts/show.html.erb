@@ -1,5 +1,5 @@
-<div>
-  <p> <%= @post.user.name unless current_user.nil? %> </p>
-  <p> <%= @post.title %> </p>
+<div class="col-md-8"> 
+  <h3> <%= @post.title %> </h3>
   <p> <%= @post.content %> </p>
+  <p> <%= @post.user.name unless current_user.nil? %> </p>
 </div>
