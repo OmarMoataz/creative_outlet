@@ -1,4 +1,6 @@
 <li>
   <%= link_to post.title, post_path(post.id) %>
-  <%= post.user.name unless current_user.nil? %>
+  <% unless current_user.nil? %>
+    | <%= link_to post.user.name, user_path(post.user.id) %>
+  <% end %>
 </li>

@@ -1,0 +1,17 @@
+<% unless current_user.discover.empty? %>
+  <h4> Discover </h4>
+  <% if current_user.nil? %>
+    <ul>
+      <%= render @posts %>
+    </ul>
+  <% else %>
+    <%= render current_user.discover %>
+  <% end %>
+<% end %>
+
+<h4> Feed </h4>
+<% unless current_user.feed.empty? %>
+  <%= render current_user.feed %>
+<% else %>
+  Follow more people you find interesting so they appear in your feed.
+<% end %>

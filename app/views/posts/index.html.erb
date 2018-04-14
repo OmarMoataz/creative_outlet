@@ -1,6 +1,7 @@
-<% provide(:title, 'All users') %>
-<h1>All Posts</h1>
-
-<ul class="posts">
-  <%= render @posts %>
-</ul>
+<div class="col-md-6">
+  <% unless current_user.nil? %>
+    <%= render 'logged_in' %>
+  <% else %>
+    <%= render @posts %>
+  <% end %>
+</div>

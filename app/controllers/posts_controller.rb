@@ -8,19 +8,17 @@ class PostsController < ApplicationController
   end
 
   def new
-    logged_in? ? (@post = Post.new) : (redirect_to login_path)
+    authorized_user { @post = Post.new }
   end
 
   def create
-    if logged_in?
+    authorized_user do
       @post = current_user.posts.new(post_params)
       if @post.save
         redirect_to posts_path
       else
         render 'new'
       end
-    else
-      redirect_to login_path
     end
   end
 
