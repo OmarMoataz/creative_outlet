@@ -2,11 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   
-  def authorized_user
-    if logged_in?
-      yield
-    else
-      redirect_to login_path
-    end
+  def authorize_user
+    redirect_to login_path if current_user.nil?
   end
 end

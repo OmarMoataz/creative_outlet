@@ -2,6 +2,6 @@
   <% unless current_user.nil? %>
     <%= render 'logged_in' %>
   <% else %>
-    <%= render @posts %>
+    <ul> <%= render @posts %> </ul>
   <% end %>
 </div>

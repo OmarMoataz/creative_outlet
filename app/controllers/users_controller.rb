@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authorize_user, only: [:show]
+
   def new
     @user = User.new
   end
@@ -19,11 +21,9 @@ class UsersController < ApplicationController
   end
 
   def follow
-    authorized_user do
-      user = User.find_by(id: params[:id])
-      current_user.follow(user) unless user.nil?
-      redirect_back(fallback_location: root_path)
-    end
+    user = User.find_by(id: params[:id])
+    current_user.follow(user) unless user.nil?
+    redirect_back(fallback_location: root_path)
   end
 
   def unfollow

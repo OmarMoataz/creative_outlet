@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
+  before_action :authorize_user, only: [:new, :create]
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).all
   end
 
   def show
@@ -12,13 +13,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    authorized_user do
-      @post = current_user.posts.new(post_params)
-      if @post.save
-        redirect_to posts_path
-      else
-        render 'new'
-      end
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      redirect_to posts_path
+    else
+      render 'new'
     end
   end
 
