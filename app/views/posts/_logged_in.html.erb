@@ -1,17 +1,23 @@
-<% unless current_user.discover.empty? %>
-  <h4> Discover </h4>
-  <% if current_user.nil? %>
+<div class="content col-md-6">
+  <% unless current_user.discover.empty? %>
+    <h4> Discover </h4>
+    <% if current_user.nil? %>
+      <ul>
+        <%= render @posts %>
+      </ul>
+    <% else %>
+      <ul>
+        <%= render current_user.discover %>
+      </ul>
+    <% end %>
+  <% end %>
+
+  <h4> Feed </h4>
+  <% unless current_user.feed.empty? %>
     <ul>
-      <%= render @posts %>
+      <%= render current_user.feed %>
     </ul>
   <% else %>
-    <%= render current_user.discover %>
+    Follow more people you find interesting so they appear in your feed.
   <% end %>
-<% end %>
-
-<h4> Feed </h4>
-<% unless current_user.feed.empty? %>
-  <%= render current_user.feed %>
-<% else %>
-  Follow more people you find interesting so they appear in your feed.
-<% end %>
+</div>

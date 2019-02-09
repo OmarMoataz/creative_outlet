@@ -1,7 +1,9 @@
-<div class="col-md-6">
-  <% unless current_user.nil? %>
-    <%= render 'logged_in' %>
-  <% else %>
-    <%= render @posts %>
-  <% end %>
-</div>
+<% unless current_user.nil? %>
+  <%= render 'logged_in' %>
+<% else %>
+  <div class="content">
+    <ul>
+      <%= render @posts %>
+    </ul>
+  </div>
+<% end %>

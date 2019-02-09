@@ -2,3 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.content {
+  ul {
+    list-style-type: none;
+    li {
+      .post {
+        margin-left: 20px;
+      }
+    }
+  }
+}
