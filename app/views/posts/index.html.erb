@@ -1,9 +1,11 @@
-<% unless current_user.nil? %>
+<div class="container">
+  <% unless current_user.nil? %>
   <%= render 'logged_in' %>
-<% else %>
+  <% else %>
   <div class="content">
     <ul>
       <%= render @posts %>
     </ul>
   </div>
-<% end %>
+  <% end %>
+</div>
