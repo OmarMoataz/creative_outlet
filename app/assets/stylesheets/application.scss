@@ -14,6 +14,7 @@
 
 @import "bootstrap";
 @import "posts";
+@import "users";
 
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -79,6 +80,10 @@ table {
 
 .header ul li {
   display: inline;
+}
+
+.body {
+  font-family: sans-serif;
 }
 
 
