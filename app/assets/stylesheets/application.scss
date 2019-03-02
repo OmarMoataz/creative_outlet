@@ -13,11 +13,10 @@
  */
 
 @import "bootstrap";
-@import "posts.scss";
+@import "posts";
+@import "users";
+@import "navigation";
 
-
-
-//css resets
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -81,4 +80,8 @@ table {
 
 .header ul li {
   display: inline;
+}
+
+.body {
+  font-family: sans-serif;
 }

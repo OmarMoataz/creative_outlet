@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
+  get 'followings/create'
+
+  get 'followings/destroy'
+
   resources :users, only: [:new, :create, :show] do
     member do
       get :following, :followers
-      post :follow, :unfollow
     end
   end
+
+  resources :followings, only: [:create, :destroy]
 
   root to: 'posts#index'
 

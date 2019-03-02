@@ -1,6 +1,9 @@
 <li>
-  <%= link_to post.title, post_path(post.id) %>
-  <% unless current_user.nil? %>
-    | <%= link_to post.user.name, user_path(post.user.id) %>
+  <% if current_user.nil? %>
+    <p> Anonymous </p>
+  <% else %>
+    <%= link_to post.user.name, user_path(post.user.id), {class: 'author'} %>
   <% end %>
+  <br>
+  <%= link_to post.title, post_path(post.id), {class: 'post'} %>
 </li>

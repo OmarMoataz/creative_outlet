@@ -1,0 +1,30 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+* {
+  font-family: Helvetica, Arial, Sans-Serif;
+}
+
+.create-user {
+  background-image: image-url("creativity.jpg");
+  background-size: cover;
+  height: 100vh;
+
+  h1 {
+    padding: 25px 0;
+    color: white;
+    font-size: 25px;
+  }
+
+  label {
+    color: white;
+    margin-bottom: 5px;
+  }
+
+  input {
+    margin-bottom: 5px;
+    max-width: 300px;
+  }
+}
