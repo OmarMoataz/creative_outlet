@@ -1,9 +1,10 @@
-<li>
+<li class="post">
   <% if current_user.nil? %>
     <p> Anonymous </p>
   <% else %>
-    <%= link_to post.user.name, user_path(post.user.id), {class: 'author'} %>
+    <h3> 
+      <%= link_to post.user.name, user_path(post.user.id), {class: 'author'} %>
+    </h3>
   <% end %>
-  <br>
-  <%= link_to post.title, post_path(post.id), {class: 'post'} %>
+  <%= link_to post.title, post_path(post.id), {class: 'title'} %>
 </li>

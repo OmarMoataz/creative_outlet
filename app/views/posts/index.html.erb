@@ -1,11 +1,10 @@
 <div class="container">
   <% unless current_user.nil? %>
+  <h2> Featured </h2>
   <%= render 'logged_in' %>
   <% else %>
-  <div class="content">
     <ul>
       <%= render @posts %>
     </ul>
-  </div>
   <% end %>
 </div>

@@ -2,14 +2,37 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.content {
-  ul {
-    list-style-type: none;
-    li {
-      .post {
-        margin-top: 20px;
-        margin-left: 20px;
-      }
-    }
+// .content {
+//   ul {
+//     list-style-type: none;
+//     li {
+//       .post {
+//         margin-top: 20px;
+//         margin-left: 20px;
+//       }
+//     }
+//   }
+// }
+
+
+.post {
+  .image {
+
+  }
+
+  .title {
+    font-size: 40px;
+  }
+
+  .content {
+
+  }
+
+  .author {
+
+  }
+
+  &.is-detailed {
+
   }
 }
