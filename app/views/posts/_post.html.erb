@@ -7,4 +7,7 @@
     </h3>
   <% end %>
   <%= link_to post.title, post_path(post.id), {class: 'title'} %>
+  <% if post.thumbnail.attached? %>
+    <li> <%= image_tag post.thumbnail.variant(resize: "50") %> </li>
+  <% end %>
 </li>

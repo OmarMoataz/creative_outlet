@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :profile_image
   before_create :remember
 
   has_many :posts

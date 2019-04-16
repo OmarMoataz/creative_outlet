@@ -25,7 +25,8 @@ class UsersController < ApplicationController
         :name,
         :email,
         :password,
-        :password_confirmation
+        :password_confirmation,
+        :profile_image
       )
   end
 end

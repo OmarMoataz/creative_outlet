@@ -4,6 +4,9 @@
     <ul>
       <% if logged_in? %>
       <ul>
+        <% if current_user.profile_image.attached? %>
+          <li> <%= image_tag current_user.profile_image.variant(resize: "20") %> </li>
+        <% end %>
         <li> <%= link_to "#{current_user.name}", user_path(current_user.id) %> </li>
         <li> <%= link_to "Logout", logout_path, method: :delete%> </li>
         <li id="add-post"> <%= link_to "+", new_post_path%> </li>
