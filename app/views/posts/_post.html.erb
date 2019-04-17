@@ -1,13 +1,17 @@
-<li class="post">
-  <% if current_user.nil? %>
-    <p> Anonymous </p>
-  <% else %>
-    <h3> 
-      <%= link_to post.user.name, user_path(post.user.id), {class: 'author'} %>
-    </h3>
-  <% end %>
-  <%= link_to post.title, post_path(post.id), {class: 'title'} %>
-  <% if post.thumbnail.attached? %>
-    <li> <%= image_tag post.thumbnail.variant(resize: "50") %> </li>
-  <% end %>
+<li class="post row">
+  <div class="col-md-8">
+    <%= link_to post.title, post_path(post.id), {class: 'title'} %>
+    <% if current_user.nil? %>
+      <p> Anonymous </p>
+    <% else %>
+      <h3 class="author"> 
+        <%= link_to post.user.name, user_path(post.user.id) %>
+      </h3>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <% if post.thumbnail.attached? %>
+      <%= image_tag post.thumbnail.variant(resize: "50") %>
+    <% end %>
+  </div>
 </li>
