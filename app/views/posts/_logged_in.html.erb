@@ -1,20 +1,20 @@
 <div class="content col-md-6">
   <% unless current_user.discover.empty? %>
-    <h4> Discover </h4>
+    <h2 class="category-title"> Discover </h2>
     <% if current_user.nil? %>
-      <ul>
+      <ul class="posts">
         <%= render @posts %>
       </ul>
     <% else %>
-      <ul>
+      <ul class="posts">
         <%= render current_user.discover %>
       </ul>
     <% end %>
   <% end %>
 
-  <h4> Feed </h4>
+  <h2 class="category-title"> Feed </h2>
   <% unless current_user.feed.empty? %>
-    <ul>
+    <ul class="posts">
       <%= render current_user.feed %>
     </ul>
   <% else %>
