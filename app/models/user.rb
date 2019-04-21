@@ -48,5 +48,9 @@ class User < ApplicationRecord
     random_string = SecureRandom.urlsafe_base64
     self.remember_token = Digest::SHA1.hexdigest random_string.to_s
   end
+
+  def posts
+    Post.where(user_id: id)
+  end
   
 end

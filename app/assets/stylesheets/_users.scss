@@ -28,3 +28,32 @@
     max-width: 300px;
   }
 }
+
+.user {
+  padding: 25px 0;
+  display: flex;
+  background-color: black;
+  flex-direction: row;
+  color: white;
+  
+  .account-info {
+    margin-left: 200px;
+    * {
+      margin-bottom: 10px;
+    }
+
+    .profile-image-wrapper {
+      img {
+        border-radius: 50%;
+      }
+    }
+  }
+
+  .user-bio {
+    margin-left: 20px;
+    margin-top: 32px;
+    p {
+      max-width: 70%;
+    }
+  }
+}

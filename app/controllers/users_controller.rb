@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def show
     redirect_to login_path unless logged_in?
     @user = User.find(params[:id])
+    @posts = @user.posts if @user != nil
   end
 
   def create
