@@ -1,8 +1,8 @@
 <div class="user">
   <div class="account-info">
     <div class="profile-image-wrapper">
-      <% if current_user.profile_image.attached? %>
-        <%= image_tag current_user.profile_image.variant(resize: "100") %>
+      <% if @user.profile_image.attached? %>
+        <%= image_tag @user.profile_image.variant(resize: "100") %>
       <% end %>
     </div>
     <p> <%= @user.name %> </p>
