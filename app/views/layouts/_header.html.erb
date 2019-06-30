@@ -9,7 +9,11 @@
         <% end %>
         <li> <%= link_to "#{current_user.name}", user_path(current_user.id) %> </li>
         <li> <%= link_to "Logout", logout_path, method: :delete%> </li>
-        <li id="add-post"> <%= link_to "+", new_post_path%> </li>
+        <% if request.path == '/posts/new' %>
+          <li> <button type="submit" form="new-article"> Publish </button> </li>
+        <% else %>
+          <li id="add-post"> <%= link_to "+", new_post_path%> </li>
+        <% end %>
       </ul>
       <% else %>
       <ul>
