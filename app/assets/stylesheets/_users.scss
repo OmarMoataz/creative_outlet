@@ -7,7 +7,7 @@
   font-family: Helvetica, Arial, Sans-Serif;
 }
 
-.create-user {
+.new-user {
   background-image: image-url("creativity.jpg");
   background-size: cover;
   height: 100vh;
@@ -26,6 +26,11 @@
   input {
     margin-bottom: 5px;
     max-width: 300px;
+  }
+
+  &__bio {
+    width: 100%;
+    height: 100px;
   }
 }
 

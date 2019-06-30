@@ -27,7 +27,8 @@ class UsersController < ApplicationController
         :email,
         :password,
         :password_confirmation,
-        :profile_image
+        :profile_image,
+        :bio
       )
   end
 end

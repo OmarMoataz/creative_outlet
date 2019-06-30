@@ -1,10 +1,10 @@
-<div class="create-user">
+<div class="new-user">
   <div class="container">
     <h1 class=""> New Profile </h1>
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <%= render 'shared/error_messages' %>
-        <%= form_for @user do |f| %>
+        <%= form_for @user, html: { class: '' } do |f| %>
         <% if flash[:danger] %>
         <div class="danger"> <%= flash[:danger] %> </div>
         <% end %>
@@ -23,6 +23,9 @@
 
         <%= f.label :profile_image %>
         <%= f.file_field :profile_image, class: 'form-control' %>
+
+        <%= f.label :bio %>
+        <%= f.text_area :bio, class: 'form-control new-user__bio', maxlength:'200'%>
 
         <%= f.submit "Sign up", class: "btn btn-primary" %>
         <% end %>
