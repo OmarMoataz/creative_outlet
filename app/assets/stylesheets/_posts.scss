@@ -6,6 +6,14 @@
   font-size: 40px;
 }
 
+html, body {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
 
 .posts {
   margin-left: 20px;
@@ -30,4 +38,34 @@
       }
     }
   }
+}
+
+
+.new-article {
+  width: 100%;
+  height: 100%;
+  &__input {
+    margin-top: 10px;
+    border: 0;
+    width: 100%;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  &__title {
+    
+  }
+
+  &__body {
+    height: 80%;
+  }
+
+  &__interaction {
+    float: right; 
+  }
+}
+
+.new-article-page {
+  height: 100%;
 }
