@@ -10,11 +10,8 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      render json @post
-    else
-    end
+    @post = Post.create!(post_params)
+    render json @post
   end
 
   def post_params
