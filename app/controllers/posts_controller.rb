@@ -1,26 +1,21 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.includes(:user).all
+    render json: @posts
   end
 
   def show
     @post = Post.find(params[:id])
-  end
-
-  def new
-    authorized_user { @post = Post.new }
+    render json @post
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      render json @post
     else
-      render 'new'
     end
   end
-
-  private
 
   def post_params
     params.require(:post).permit(

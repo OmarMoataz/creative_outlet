@@ -1,12 +1,12 @@
-class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+class ApplicationController < ActionController::API
   include SessionsHelper
   
   def authorized_user
-    if logged_in?
-      yield
-    else
-      redirect_to login_path
-    end
+    # if logged_in?
+    #   yield
+    # else
+    #   redirect_to login_path
+    # end
+    yield
   end
 end
