@@ -1,12 +1,21 @@
+# frozen_string_literal: true
+
+# Main controller all controllers are based on.
 class ApplicationController < ActionController::API
-  include SessionsHelper
-  
-  def authorized_user
-    # if logged_in?
-    #   yield
-    # else
-    #   redirect_to login_path
-    # end
-    yield
+  def not_found
+    render json: { error: 'not_found' }
+  end
+
+  def authorize_request
+    header = request.headers['Authorization']
+    header = header.split(' ').last if header
+    begin
+      @decoded = JsonWebToken.decode(header)
+      @current_user = User.find(@decoded[:user_id])
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { errors: e.message }, status: :unauthorized
+    rescue JWT::DecodeError => e
+      render json: { errors: e.message }, status: :unauthorized
+    end
   end
 end
