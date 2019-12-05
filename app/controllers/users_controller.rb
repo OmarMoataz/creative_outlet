@@ -21,6 +21,19 @@ class UsersController < ApplicationController
     render json: @user
   end
 
+  def toggle_follow
+    user = User.find_by(id: params[:id])
+    if user
+      if @current_user.following?(user)
+        unfollow(user)
+      else
+        follow(user)
+      end
+    else
+      not_found('user')
+    end
+  end
+
   def user_params
     params.require(:user).permit(
       :name,
@@ -30,5 +43,19 @@ class UsersController < ApplicationController
       :profile_image,
       :bio
     )
+  end
+
+  private
+
+  def follow(user)
+    @current_user.follow(user)
+    render json: user
+  end
+
+  def unfollow(user)
+    @current_user.unfollow(user)
+    render json: {
+      message: 'User unfollowed successfully'
+    }
   end
 end
