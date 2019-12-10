@@ -49,6 +49,7 @@ gem 'image_processing', '~> 1.2'
 # Token based authentication
 gem 'jwt'
 
+# Postgres database gem
 gem 'pg', '~> 0.18.4'
 
 
@@ -57,7 +58,6 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails', '~> 4.0'
   gem 'faker'
-  # gem 'sqlite3', '~> 1.3.6'
 end
 
 group :development do
@@ -75,10 +75,6 @@ group :test do
   gem 'shoulda-matchers', '~> 3.1'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
-end
-
-group :production do
-  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
