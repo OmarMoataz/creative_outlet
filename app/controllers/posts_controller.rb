@@ -33,7 +33,6 @@ class PostsController < ApplicationController
   end
 
   def respond_to_post
-    byebug
     if @post.valid?
       post_serializer = PostSerializer.new(post: @post, user: @current_user)
       render json: post_serializer.serialize_new_post
