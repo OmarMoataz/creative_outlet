@@ -16,11 +16,12 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.new(post_params)
-    if @post.save
-      render json: @post
-    else
-      render json: @post.errors, status: 422
-    end
+    # if @post.save
+    #   render json: @post
+    # else
+    #   render json: @post.errors, status: 422
+    # end
+    respond_to_post if @post.save!
   end
 
   def post_params
@@ -30,4 +31,16 @@ class PostsController < ApplicationController
       :thumbnail
     )
   end
+
+  def respond_to_post
+    byebug
+    if @post.valid?
+      post_serializer = PostSerializer.new(post: @post, user: @current_user)
+      render json: post_serializer.serialize_new_post
+    else
+      render json: { errors: post.errors }, status: 400
+    end
+  end
+
+  private :respond_to_post
 end
