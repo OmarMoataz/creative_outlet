@@ -16,12 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.new(post_params)
-    # if @post.save
-    #   render json: @post
-    # else
-    #   render json: @post.errors, status: 422
-    # end
-    respond_to_post if @post.save!
+    respond_to_post if @current_user.posts.save!
   end
 
   def post_params
