@@ -16,25 +16,18 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.new(post_params)
-    respond_to_post if @current_user.posts.save!
-  end
-
-  def post_params
-    params.require(:post).permit(
-      :title,
-      :content,
-      :thumbnail
-    )
-  end
-
-  def respond_to_post
-    if @post.valid?
-      post_serializer = PostSerializer.new(post: @post, user: @current_user)
-      render json: post_serializer.serialize_new_post
+    if @post.save!
+      render json: @post
     else
       render json: { errors: post.errors }, status: 400
     end
   end
 
-  private :respond_to_post
+  def post_params
+    params.permit(
+      :title,
+      :content,
+      :thumbnail
+    )
+  end
 end

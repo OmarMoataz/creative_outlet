@@ -2,7 +2,7 @@
 
 # Main controller all controllers are based on.
 class ApplicationController < ActionController::API
-  def not_found (type = '')
+  def not_found(type = '')
     render json: { error: "#{type} not found" }, status: 404
   end
 
