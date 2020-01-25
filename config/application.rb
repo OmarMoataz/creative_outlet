@@ -9,6 +9,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module CreativeOutlet
+  # Configurations for Rails app.
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
@@ -18,9 +19,9 @@ module CreativeOutlet
       allow do
         origins Rails.application.credentials[Rails.env.to_sym][:allowed_origins]
         resource '*',
-                 headers: :any,
-                 expose: %w[access-token expiry token-type uid client],
-                 methods: %i[get post options delete put]
+                  headers: :any,
+                  expose: %w[access-token expiry token-type uid client],
+                  methods: %i[get post options delete put]
       end
     end
 
