@@ -6,10 +6,10 @@ RSpec.describe 'User Requests', type: :request do
   context 'Create Profile' do
     context 'valid create request' do
       let(:valid_attributes) { attributes_for(:user) }
-      before { post '/users', params: { user: valid_attributes } }
+      before { post '/users', params: valid_attributes }
 
       it 'creates a user' do
-        expect { post '/users', params: { user: valid_attributes } }.to change { User.count }.by(1)
+        expect { post '/users', params: valid_attributes }.to change { User.count }.by(1)
       end
     end
 
@@ -17,7 +17,7 @@ RSpec.describe 'User Requests', type: :request do
       let(:invalid_attributes) { attributes_for(:user) }
 
       it "Doesn't create user when invalid email" do
-        post '/users', params: { user: invalid_attributes.merge(email: '123') }
+        post '/users', params: invalid_attributes.merge(email: '123')
         expect(response).to have_http_status(422)
         expect(JSON.parse(response.body)['email'][0]).to match(/is invalid/)
       end

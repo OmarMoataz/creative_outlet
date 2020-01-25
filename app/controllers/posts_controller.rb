@@ -16,10 +16,10 @@ class PostsController < ApplicationController
 
   def create
     @post = @current_user.posts.new(post_params)
-    if @post.save!
+    if @post.save
       render json: @post
     else
-      render json: { errors: post.errors }, status: 400
+      render json: { errors: @post.errors }, status: 422
     end
   end
 

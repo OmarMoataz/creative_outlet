@@ -11,7 +11,7 @@ RSpec.describe 'Post Requests', type: :request do
     context 'valid create request' do
       it 'Creates a post' do
         expect do
-          post '/posts', params: { post: valid_attributes }, headers: headers
+          post '/posts', params: valid_attributes, headers: headers
         end.to change { Post.count }.by(1)
       end
     end
