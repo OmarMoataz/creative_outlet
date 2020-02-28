@@ -31,6 +31,12 @@ RSpec.describe 'Post Requests', type: :request do
 
       it "Doesn't create post due to content being blank (422)" do
         post '/posts', params: { post: valid_attributes.merge(title: nil) }, headers: headers
+        expect(response).to have_http_status(422)
+      end
+
+      it "Doesn't create post due to description being blank (422)" do
+        post '/posts', params: { post: valid_attributes.merge(description: nil) }, headers: headers
+        expect(response).to have_http_status(422)
       end
     end
   end

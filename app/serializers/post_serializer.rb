@@ -2,7 +2,7 @@
 
 # Class that's responsible for returning the json object for posts.
 class PostSerializer < ApplicationSerializer
-  attributes :title, :content
+  attributes :title, :content, :description
   attribute :thumbnail_url, key: :thumbnailUrl
   belongs_to :user
 

@@ -27,6 +27,7 @@ class PostsController < ApplicationController
     params.permit(
       :title,
       :content,
+      :description,
       :thumbnail
     )
   end
