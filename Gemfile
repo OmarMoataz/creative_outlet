@@ -20,6 +20,9 @@ gem 'jquery-rails'
 #hirb console output formatting
 gem 'hirb', '~> 0.7.3'
 
+# kaminari pagination
+gem 'kaminari', '~> 1.2.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

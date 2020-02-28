@@ -9,7 +9,7 @@ FactoryBot.define do
 
     factory :user_with_posts do
       transient do
-        posts_count { 2 }
+        posts_count { 5 }
       end
 
       after(:create) do |user, evaluator|

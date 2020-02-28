@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :authorize_request
 
   def index
-    @posts = Post.includes(:user).all
+    @posts = Post.includes(:user).page(page).per(per_page)
     render json: @posts
   end
 
@@ -29,5 +29,15 @@ class PostsController < ApplicationController
       :content,
       :thumbnail
     )
+  end
+
+  private
+
+  def page
+    params[:page] || 1
+  end
+
+  def per_page
+    params[:per_page] || 10
   end
 end
