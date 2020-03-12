@@ -5,8 +5,12 @@ class PostsController < ApplicationController
   before_action :authorize_request
 
   def index
-    @posts = Post.includes(:user).page(page).per(per_page)
-    render json: @posts
+    @posts = Post.includes(:user)
+    paginated_posts = @posts.page(page).per(per_page)
+    render json: paginated_posts,
+           adapter: :json,
+           root: 'data',
+           meta: { totalCount: @posts.size }
   end
 
   def show
