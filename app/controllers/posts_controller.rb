@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   before_action :authorize_request
 
   def index
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).with_attached_thumbnail
     paginated_posts = @posts.page(page).per(per_page)
     render json: paginated_posts,
            adapter: :json,
