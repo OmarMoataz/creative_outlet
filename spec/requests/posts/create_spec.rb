@@ -10,8 +10,8 @@ RSpec.describe 'Post Requests', type: :request do
 
     context 'valid create request' do
       it 'Creates a post' do
-          post '/posts', params: valid_attributes, headers: headers
-          expect(response).to have_http_status(200)
+        post '/posts', params: valid_attributes, headers: headers
+        expect(response).to have_http_status(200)
       end
     end
 
@@ -21,7 +21,7 @@ RSpec.describe 'Post Requests', type: :request do
       it "Doesn't create post due to authorization error (401)" do
         post '/posts', params: { post: valid_attributes }
         expect(response).to have_http_status(401)
-        expect(response.body).to match(/Nil JSON web token/)
+        expect(response.body).to match(/Invalid token/)
       end
 
       it "Doesn't create post due to content being blank (422)" do

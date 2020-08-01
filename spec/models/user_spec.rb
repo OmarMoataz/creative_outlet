@@ -35,13 +35,6 @@ RSpec.describe User, type: :model do
     end
   end
 
-  # context "when user follows a user they're already following" do
-  #   it "doesn't change following count" do
-  #     user.follow(other_user)
-  #     expect{ user.follow(other_user) }.not_to change{ user.following.count }
-  #   end
-  # end
-
   context "User feed" do
     it "followed user post should end up in the feed" do
       user.follow(other_user)
