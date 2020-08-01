@@ -13,6 +13,10 @@ FactoryBot.define do
       user.save
     end
 
+    factory :user_with_role_reader do
+      role factory: :role, name: 'reader'
+    end
+
     factory :user_with_posts do
       transient do
         posts_count { 5 }
