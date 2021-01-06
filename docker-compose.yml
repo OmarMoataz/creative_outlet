@@ -1,0 +1,35 @@
+version: '3.8'
+
+services: 
+  creative-outlet:
+    build: .
+    container_name: co
+    depends_on:
+      [postgres_creative-outlet]
+    image: co:1.0
+    # Specify the values of the environment variables
+    # used in this container.
+    environment:
+      RAILS_ENV: development
+      DATABASE_NAME: creative_outlet_dev
+      DATABASE_USER: creative_outlet
+      DATABASE_PASSWORD: 'Hello'
+      DATABASE_HOST: postgres_creative-outlet
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/code:cached
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+  postgres_creative-outlet:
+    environment:
+      POSTGRES_PASSWORD: 'Hello'
+      POSTGRES_USER: 'creative_outlet'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    container_name: postgres-co
+    image: postgres:13.1
+    ports: 
+      - 5432:5432
+volumes:
+  db_data:    
