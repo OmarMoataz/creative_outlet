@@ -21,7 +21,7 @@ gem 'jquery-rails'
 gem 'hirb', '~> 0.7.3'
 
 # kaminari pagination
-gem 'kaminari', '~> 1.2.0'
+gem 'kaminari', '~> 1.2.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
