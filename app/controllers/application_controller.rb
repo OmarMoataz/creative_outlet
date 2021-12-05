@@ -25,7 +25,7 @@ class ApplicationController < ActionController::API
     if @current_user&.role&.name == 'writer'
       true
     else
-      render json: { errors: 'Unauthorized action: creating post' }, status: :unauthorized
+      render json: { errors: 'Forbidden action: creating post' }, status: :forbidden
     end
   end
 end
