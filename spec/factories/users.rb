@@ -6,6 +6,16 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { 'password' }
     password_confirmation { 'password' }
+    role
+
+    after(:create) do |user|
+      user.set_role('writer')
+      user.save
+    end
+
+    factory :user_with_role_reader do
+      role factory: :role, name: 'reader'
+    end
 
     factory :user_with_posts do
       transient do

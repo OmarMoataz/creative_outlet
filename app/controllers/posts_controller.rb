@@ -2,7 +2,8 @@
 
 # Controller responsible for handling requests related to posts.
 class PostsController < ApplicationController
-  before_action :authorize_request
+  before_action :authorize_request, only: [:create]
+  before_action :can_post?, only: :create
 
   def index
     @posts = Post.includes(:user).with_attached_thumbnail

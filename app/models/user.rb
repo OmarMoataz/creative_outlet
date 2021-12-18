@@ -2,7 +2,10 @@
 
 # Class responsible for all the functionality for the user model.
 class User < ApplicationRecord
+  before_create { |user| user.set_role('reader') }
+
   has_one_attached :profile_image
+  belongs_to :role, optional: true
 
   has_many :posts
   has_many :active_relationships, class_name: 'Relationship',
@@ -21,6 +24,10 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
 
   has_secure_password
+
+  def set_role(role_name)
+    self.role = Role.find_by(name: role_name)
+  end
 
   def feed
     following_ids = "SELECT followed_id FROM relationships
