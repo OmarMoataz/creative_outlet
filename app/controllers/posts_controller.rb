@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def create
+    params.delete(:thumbnail) if params[:thumbnail] == 'undefined'
     @post = @current_user.posts.new(post_params)
     if @post.save
       render json: @post
