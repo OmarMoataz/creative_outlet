@@ -50,7 +50,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Image transformation for active storage using variants.
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 # Token based authentication
 gem 'jwt'
