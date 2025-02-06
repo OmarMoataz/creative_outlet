@@ -9,9 +9,7 @@ if you want to try out this API separately: <a href="https://www.getpostman.com/
 Here's the old creative outlet webapp: http://creativeoutlet.herokuapp.com/
 
 
-If at any point in the future, these links don't work because hosting is expensive :)
-
-Here are a few screenshots of what the app looks like:
+If at any point in the future, these links don't work because hosting is expensive, here are a few screenshots of what the app looks like:
 
 Homepage:
 
