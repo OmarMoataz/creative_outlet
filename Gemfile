@@ -56,7 +56,8 @@ gem 'image_processing', '~> 1.2'
 gem 'jwt'
 
 # Postgres database gem
-gem 'pg', '~> 0.18.4'
+# gem 'pg', '~> 0.18.4'
+gem 'pg', '~> 1.5', '>= 1.5.9'
 
 # Serializes ruby to json objects.
 gem 'active_model_serializers', '~> 0.10.0'
