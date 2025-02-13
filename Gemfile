@@ -5,10 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "2.6.6"
+ruby "2.7.3"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.2.0'
+gem 'rails', '6.0.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -63,6 +63,13 @@ gem 'pg', '~> 1.5', '>= 1.5.9'
 gem 'active_model_serializers', '~> 0.10.0'
 
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
+
+gem 'concurrent-ruby', '1.3.4'
+
+gem 'webpacker'
+
+gem 'net-http'
+
 
 
 group :development, :test do
