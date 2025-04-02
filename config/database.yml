@@ -25,4 +25,7 @@ test:
 
 production:
   <<: *default
-  database: creative_outlet_prod
+  host: <%= ENV['POSTGRES_CONNECTION_STRING'] %>
+  database: <%= ENV['POSTGRES_DB_NAME'] %>
+  username: <%= ENV['POSTGRES_USERNAME'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>

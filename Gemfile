@@ -68,7 +68,11 @@ gem 'concurrent-ruby', '1.3.4'
 
 gem 'webpacker'
 
+gem "aws-sdk-s3", require: false
+
 gem 'net-http'
+
+gem "ffi", '1.16.3'
 
 
 
@@ -99,3 +103,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "dockerfile-rails", ">= 1.7", :group => :development
+
+gem "redis", "~> 5.4"
