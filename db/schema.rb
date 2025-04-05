@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2025_02_15_000343) do
+ActiveRecord::Schema.define(version: 2025_04_05_155731) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2025_02_15_000343) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "description"
+    t.boolean "is_pinned", default: false
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

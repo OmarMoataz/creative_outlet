@@ -6,12 +6,24 @@ class PostsController < ApplicationController
   before_action :can_post?, only: :create
 
   def index
-    @posts = Post.includes(:user).with_attached_thumbnail
-    paginated_posts = @posts.page(page).per(per_page)
-    render json: paginated_posts,
+    if (page == "1")
+      @other_posts = Post.includes(:user).with_attached_thumbnail.where(is_pinned: false)
+      @pinned_post = Post.includes(:user).with_attached_thumbnail.where(is_pinned: true)
+
+      @posts = Post.includes(:user).with_attached_thumbnail.where(Post.arel_table[:is_pinned].eq(true).or(Post.arel_table[:is_pinned].eq(false)))
+
+      render json: @posts.page(page).per(per_page),
+                adapter: :json,
+                root: 'data',
+                meta: { totalCount: @posts.size }
+    elsif
+      @posts = Post.includes(:user).with_attached_thumbnail  
+      paginated_posts = @posts.page(page).per(per_page)
+      render json: paginated_posts,
            adapter: :json,
            root: 'data',
            meta: { totalCount: @posts.size }
+    end
   end
 
   def show
